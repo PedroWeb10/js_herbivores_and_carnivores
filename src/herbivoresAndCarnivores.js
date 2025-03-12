@@ -15,12 +15,8 @@ class Animal {
   }
 
   checkHealth() {
-    if (!this.live()) {
-      const index = Animal.alive.indexOf(this);
-
-      if (index !== -1) {
-        Animal.alive.filter(index, 1);
-      }
+    if (this.health <= 0) {
+      Animal.alive = Animal.alive.filter((animal) => animal.health > 0);
     }
   }
 }
